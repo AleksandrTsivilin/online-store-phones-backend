@@ -7,11 +7,14 @@
   "type": "module",
   "main": "index.ts",
   "scripts": {
+    "migrations-up": "npx sequelize db:migrate",
+    "seeders-up": "npx sequelize db:seed:all",
+    "migrations-seeders": "npm run migrations-up && npm run seeders-up",
     "format": "prettier --write . --ignore-path .gitignore",
     "lint": "eslint --ext .ts --ignore-path .gitignore .",
     "build": "swc src -d dist",
     "build-dev": "cross-env NODE_ENV=development npm run build && node --inspect dist/index.js",
-    "dev": "nodemon --ext ts --exec \"npm run build-dev\"",
+    "dev": "npm run migrations-seeders && nodemon --ext ts --exec \"npm run build-dev\"",
     "start": "npm run build && cross-env NODE_ENV=production node dist/index.js",
     "prepare": "husky install",
     "sync-tables": "node dist/utils/syncTables.js"

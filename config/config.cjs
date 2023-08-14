@@ -29,13 +29,16 @@ module.exports = {
   development: {
     ...dbCredentials,
     ...dialectConfig,
+    seederStorage: 'sequelize',
   },
   test: {
     ...dbCredentials,
     ...dialectConfig,
+    seederStorage: 'sequelize',
   },
   production: {
     ...dbCredentials,
     ...dialectConfig,
+    seederStorage: 'sequelize',
   }
 };
