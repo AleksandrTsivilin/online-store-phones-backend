@@ -1,0 +1,19 @@
+{
+  "jsc": {
+    "target": "es2016",
+    "parser": {
+      "syntax": "typescript",
+      "decorators": true,
+      "dynamicImport": false
+    },
+    "transform": {
+      "legacyDecorator": false,
+      "decoratorMetadata": true
+    }
+  },
+  "env": {
+    "targets": {
+      "node": 18
+    }
+  }
+}
